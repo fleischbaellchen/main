@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import AudioToolbox
 
 protocol SessionManagerDelegate {
     func scanned(barcode: String)
@@ -91,6 +92,8 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             if (scannedBarcodes.filter({ (barcode) -> Bool in
                 barcode == barcodeString
             }).count < 1) {
+                //vibrate
+                AudioServicesPlaySystemSound(1352)
                 scannedBarcodes.append(barcodeString) // add new barcode to scanned barcodes
                 delegate.scanned(barcodeString) // send barcode to delegate
             }
