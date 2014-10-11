@@ -70,8 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as UITableViewCell
         
         let product: Product = self.products[indexPath.row]
-        let nameLabel = cell.viewWithTag(1) as UILabel
-        nameLabel.text = product.name
+        cell.textLabel?.text = product.name
 
         return cell
     }
