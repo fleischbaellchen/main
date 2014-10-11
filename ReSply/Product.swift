@@ -11,12 +11,15 @@ import Foundation
 class Product {
 
     var EAN: String!
-    var id: String! // The id we received from the API
     var name: String!
     var mainCategory: String!
-    var catPath: [String]!
     var addedDate: NSDate!
     var tickedOff: Bool!
+    
+    init(ean: String, name: String, mainCategory: String, addedDate: NSDate, tickedOff: Bool) {
+        self.EAN = ean;
+        
+    }
     
     // Init Product from JSON
     init(data: JSON, ean: String) {
@@ -24,9 +27,9 @@ class Product {
         self.addedDate = NSDate()
         self.tickedOff = false
         
-        self.catPath = []
+        var catPath: [String] = [String]()
         for (index: String, subJson: JSON) in data["catPath"] {
-            self.catPath.append(subJson["name"].string!)
+            catPath.append(subJson["name"].string!)
         }
         
         if let name = data["name"].string {
@@ -42,7 +45,7 @@ class Product {
             }
         }
         
-        if let cat = self.catPath[2] as String? {
+        if let cat = catPath[2] as String? {
             self.mainCategory = cat
         } else {
             self.mainCategory = "Nicht kategorisiert"
