@@ -1,4 +1,4 @@
--- Sets up a new database with the schema drawn in `ER_and_Schema.jpg`
+-- Sets up a new database with the schema drawn in `ER_and_Relations.jpg`
 -- 
 -- David Keller, 11.10.2014
 --
