@@ -5,62 +5,47 @@
     </dependencies>
     <scenes>
         <!--Shopping List-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="Pk7-7o-bCU">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ReSply" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                <tableViewController title="Shopping List" id="TUk-1U-Dpu" customClass="ViewController" customModule="ReSply" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cSO-nI-v2P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wcp-rE-WDR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" id="SCX-W6-19v">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SCX-W6-19v" id="mIv-V7-XXu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
                                 <inset key="separatorInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" id="cBA-QO-3FO">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBA-QO-3FO" id="YOH-RV-W0Q">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hX5-58-9UE"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YXg-9N-sBa"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TUk-1U-Dpu" id="ogb-6Y-QWs"/>
+                            <outlet property="delegate" destination="TUk-1U-Dpu" id="bXw-My-Oq1"/>
+                        </connections>
+                    </tableView>
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="u47-zc-FZz">
                             <connections>
-                                <action selector="getProduct" destination="BYZ-38-t0r" id="7ND-3h-QIA"/>
                                 <segue destination="cnY-gg-0WQ" kind="presentation" id="31c-Oi-78p"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8XS-W0-4zv"/>
                         <barButtonItem systemItem="trash" id="N7z-fl-6d1">
                             <connections>
-                                <action selector="clearShoppingList" destination="BYZ-38-t0r" id="lCz-5Y-k3S"/>
+                                <action selector="clearShoppingList" destination="TUk-1U-Dpu" id="At2-da-EqJ"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Shopping List" id="lyR-yi-JJt"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="AZa-kV-oFY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <connections>
-                        <outlet property="tableView" destination="Wcp-rE-WDR" id="taf-c7-gxn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3My-lT-Wt9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="194"/>
+            <point key="canvasLocation" x="811" y="178"/>
         </scene>
         <!--Scan View Controller-->
         <scene sceneID="QAo-Hg-lmm">
@@ -127,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8O5-Ga-KnV"/>
+                        <segue destination="TUk-1U-Dpu" kind="relationship" relationship="rootViewController" id="II1-rh-Ol9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vnX-g5-EPo" userLabel="First Responder" sceneMemberID="firstResponder"/>

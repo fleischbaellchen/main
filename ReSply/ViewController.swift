@@ -8,10 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ScanViewControllerDelegate {
-    
-    @IBOutlet var tableView: UITableView!
-    
+class ViewController: UITableViewController, ScanViewControllerDelegate {
+        
     var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
     
     func getProduct(EAN: String) {
@@ -90,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var key: String = Array(categorizedProducts.keys)[section]
         if let array = categorizedProducts[key] {
             return array.count
@@ -98,17 +96,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 0
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return categorizedProducts.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var key: String = Array(categorizedProducts.keys)[section]
         return key
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as UITableViewCell
         
         var key: String = Array(categorizedProducts.keys)[indexPath.section]
         if let array = categorizedProducts[key] {
@@ -132,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // update product status
         var key: String = Array(categorizedProducts.keys)[indexPath.section]
         if let products = categorizedProducts[key] as [Product]? {
@@ -154,6 +152,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             var scanViewController = segue.destinationViewController as? ScanViewController
             scanViewController?.delegate = self
         //}
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        var key: String = Array(categorizedProducts.keys)[indexPath.section]
+        var indexSet = NSMutableIndexSet()
+        self.categorizedProducts[key]?.removeAtIndex(indexPath.row)
+        if self.categorizedProducts[key]?.count == 0 {
+            self.categorizedProducts.removeValueForKey(key)
+            indexSet.addIndex(indexPath.section)
+            self.tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+        } else {
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
     }
     
     //MARK: - ScanViewControllerDelegate
