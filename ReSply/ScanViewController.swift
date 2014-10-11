@@ -24,6 +24,8 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
+        
         self._sessionManager = SessionManager(delegate: self)
         if let sessionManager = _sessionManager {
             sessionManager.startRunning()
@@ -45,6 +47,10 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
     func scanned(barcode: String) {
         println("scanned barcode \(barcode)")
         delegate.scanViewControllerScanned(barcode)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     
