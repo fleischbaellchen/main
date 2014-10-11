@@ -37,6 +37,7 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
     }
     
     @IBAction func tappedFinish() {
+        _sessionManager?.stopRunning()
         delegate.scanViewControllerDidStopScanning(self)
     }
     
