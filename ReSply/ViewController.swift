@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
     
-    
     func getProduct(EAN: String) {
         //let EAN = "7617027097710"
         let url = NSURL(string: "http://api.autoidlabs.ch//products/\(EAN)")
@@ -59,6 +58,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
     }
 
+    @IBAction func clearShoppingList() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let deleteAction = UIAlertAction(title: "Delete List", style: .Destructive) { (action) in
+            // Clear list
+            self.categorizedProducts = Dictionary<String, [Product]!>()
+            
+            // Update table view
+            self.tableView.reloadData()
+        }
+        alertController.addAction(deleteAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
