@@ -9,9 +9,15 @@
 import Foundation
 import AVFoundation
 
+protocol SessionManagerDelegate {
+    func scannedBarcode(barcode: String)
+}
+
 class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
-    var barcodes: [AnyObject]?
+    let delegate: SessionManagerDelegate
+    
+    var scannedBarcodes: [String]
     
     var metadataOutput: AVCaptureMetadataOutput!
     
@@ -21,9 +27,11 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     private var _sessionQueue: dispatch_queue_t
     var _running: Bool
     
-    override init() {
+    init(delegate: SessionManagerDelegate) {
         _sessionQueue = dispatch_queue_create("ch.zkdk.ReadBarcode.caputre", DISPATCH_QUEUE_SERIAL)
         _running = false
+        self.delegate = delegate
+        self.scannedBarcodes = [String]()
     }
     
     func startRunning() {
@@ -75,9 +83,19 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     //MARK: Metadata output delegate
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        
         let barcodes = metadataObjects as [AVMetadataMachineReadableCodeObject]
-        if (barcodes.count > 0) {
-            println("callback for output \(barcodes[0].stringValue)")
+        if barcodes.count > 0 {
+            let barcodeString = barcodes[0].stringValue
+            
+            // check if barcode was already scanned
+            // probably a dictionary lookup would be faster
+            if (scannedBarcodes.filter({ (barcode) -> Bool in
+                barcode == barcodeString
+            }).count < 1) {
+                scannedBarcodes.append(barcodeString) // add new barcode to scanned barcodes
+                delegate.scannedBarcode(barcodeString) // send barcode to delegate
+            }
         }
     }
 }

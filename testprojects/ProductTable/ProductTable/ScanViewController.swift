@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScanViewController: UIViewController {
+class ScanViewController: UIViewController, SessionManagerDelegate {
     
     @IBOutlet var previewView: PreviewView!
     var _sessionManager: SessionManager?
@@ -17,12 +17,11 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self._sessionManager = SessionManager()
+        self._sessionManager = SessionManager(delegate: self)
         if let sessionManager = _sessionManager {
             sessionManager.startRunning()
             self.previewView.session = sessionManager._captureSession!
         }
-        self.stepTimer = NSTimer(timeInterval: 0.15, target: self, selector: "step", userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,11 +29,11 @@ class ScanViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //MARK: - Barcode Sequencer
-    func step() {
-        println("Step")
+    //MARK: - SessionManagerDelegate
+    func scannedBarcode(barcode: String) {
+        println("scanned barcode \(barcode)")
     }
+
     
 }
 
