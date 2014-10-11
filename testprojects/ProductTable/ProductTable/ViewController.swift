@@ -34,14 +34,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
                 // Extract JSON and create Product
                 let json = JSON(data: data)
-                self.products.append(Product(data: json, ean: EAN))
-    
-                // Update table view
-                if let tableView = self.tableView {
-                    tableView.reloadData()
+                if json.string != nil {
+                    self.products.append(Product(data: json, ean: EAN))
                 } else {
-                    println("No table view")
+                    // Handle no product data error!
+                    // Maybe fallback to GS1 API?
+                    println("No product data")
                 }
+            
+                // Update table view
+                self.tableView.reloadData()
         })
     }
 

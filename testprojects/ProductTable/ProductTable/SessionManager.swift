@@ -37,11 +37,9 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     func startRunning() {
         dispatch_sync(_sessionQueue) {
             self.setupCaptureSession()
-            
+            self.metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code]
             self._captureSession?.startRunning()
             self._running = true
-            
-            self.metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code]
         }
     }
     
