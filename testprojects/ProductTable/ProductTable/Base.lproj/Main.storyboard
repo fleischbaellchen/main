@@ -40,6 +40,7 @@
                         <barButtonItem systemItem="add" id="u47-zc-FZz">
                             <connections>
                                 <action selector="getProduct" destination="BYZ-38-t0r" id="7ND-3h-QIA"/>
+                                <segue destination="cnY-gg-0WQ" kind="presentation" id="31c-Oi-78p"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -52,6 +53,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="196"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="QAo-Hg-lmm">
+            <objects>
+                <viewController id="cnY-gg-0WQ" customClass="ScanViewController" customModule="ProductTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b6P-cE-Bhy"/>
+                        <viewControllerLayoutGuide type="bottom" id="WvX-1J-bVK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bT8-8m-5rH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOE-sH-WMQ" customClass="PreviewView" customModule="ProductTable" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GOE-sH-WMQ" secondAttribute="trailing" id="Kbb-Dp-bqn"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="bottom" secondItem="WvX-1J-bVK" secondAttribute="top" id="d4m-4R-EbR"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="leading" secondItem="bT8-8m-5rH" secondAttribute="leading" id="iTy-n9-XGn"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="top" secondItem="bT8-8m-5rH" secondAttribute="top" id="kkV-Ll-gRO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="GOE-sH-WMQ" id="Hb0-hv-udQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5V-q4-00f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QXO-at-vv9">

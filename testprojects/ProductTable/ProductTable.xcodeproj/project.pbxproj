@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E819E8D6C800D4954E /* PreviewView.swift */; };
 		55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E919E8D6C800D4954E /* SessionManager.swift */; };
+		55B117ED19E8D7BA00D4954E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117EC19E8D7BA00D4954E /* ScanViewController.swift */; };
 		AA4D875419E8938D00AB2949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875319E8938D00AB2949 /* AppDelegate.swift */; };
 		AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875519E8938D00AB2949 /* ViewController.swift */; };
 		AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4D875719E8938D00AB2949 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		55B117E819E8D6C800D4954E /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		55B117E919E8D6C800D4954E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		55B117EC19E8D7BA00D4954E /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		AA4D874E19E8938D00AB2949 /* ProductTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4D875219E8938D00AB2949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4D875319E8938D00AB2949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				AA4D875A19E8938D00AB2949 /* Images.xcassets */,
 				AA4D875C19E8938D00AB2949 /* LaunchScreen.xib */,
 				AA4D875119E8938D00AB2949 /* Supporting Files */,
+				55B117EC19E8D7BA00D4954E /* ScanViewController.swift */,
 			);
 			path = ProductTable;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */,
+				55B117ED19E8D7BA00D4954E /* ScanViewController.swift in Sources */,
 				AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */,
 				55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */,
 				AA4D875419E8938D00AB2949 /* AppDelegate.swift in Sources */,

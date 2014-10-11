@@ -76,7 +76,9 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     //MARK: Metadata output delegate
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         let barcodes = metadataObjects as [AVMetadataMachineReadableCodeObject]
-        println("callback for output \(barcodes[0].stringValue)")
+        if (barcodes.count > 0) {
+            println("callback for output \(barcodes[0].stringValue)")
+        }
     }
 }
 
