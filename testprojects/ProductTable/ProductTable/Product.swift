@@ -13,6 +13,7 @@ class Product {
     var EAN: String!
     var id: String! // The id we received from the API
     var name: String!
+    var mainCategory: String!
     var catPath: [String]!
     var addedDate: NSDate!
     var tickedOff: Bool!
@@ -34,6 +35,12 @@ class Product {
         } else {
             // No name, take it from catPath
             self.name = catPath[catPath.count - 1]
+        }
+        
+        if let cat = self.catPath[2] as String? {
+            self.mainCategory = cat
+        } else {
+            self.mainCategory = "Uncategorized"
         }
         
         println("Created product with name \(name)")

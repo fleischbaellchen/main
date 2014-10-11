@@ -12,7 +12,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var tableView: UITableView!
     
-    var products: [Product]! = []
+    var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
+    
     
     func getProduct(EAN: String) {
         //let EAN = "7617027097710"
@@ -35,7 +36,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 // Extract JSON and create Product
                 let json = JSON(data: data)
                 if json {
-                    self.products.append(Product(data: json, ean: EAN))
+                    if let product = Product(data: json, ean: EAN) as Product? {
+                        // check if key exists
+                        if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
+                            self.categorizedProducts[product.mainCategory]!.append(product)
+                        } else {
+                            self.categorizedProducts[product.mainCategory] = []
+                            self.categorizedProducts[product.mainCategory]!.append(product)
+                        }
+                    } else {
+                        println("Failed to create product")
+                    }
+                    
                 } else {
                     // Handle no product data error!
                     // Maybe fallback to GS1 API?
@@ -60,34 +72,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let array = products {
+        var key: String = Array(categorizedProducts.keys)[section]
+        if let array = categorizedProducts[key] {
             return array.count
         }
         return 0
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return categorizedProducts.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var key: String = Array(categorizedProducts.keys)[section]
+        return key
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as UITableViewCell
         
-        if let product: Product = self.products[indexPath.row] as Product? {
-            cell.textLabel?.text = product.name
-            if product.tickedOff == false {
-                cell.textLabel?.textColor = UIColor.blackColor()
+        var key: String = Array(categorizedProducts.keys)[indexPath.section]
+        if let array = categorizedProducts[key] {
+            if let product: Product = array[indexPath.row] as Product? {
+                cell.textLabel?.text = product.name
+                if product.tickedOff == false {
+                    cell.textLabel?.textColor = UIColor.blackColor()
+                } else {
+                    cell.textLabel?.textColor = UIColor.lightGrayColor()
+                }
             } else {
-                cell.textLabel?.textColor = UIColor.lightGrayColor()
+                println("No product at index path \(indexPath.row)")
+                
             }
         } else {
-            println("No product at index path \(indexPath.row)")
-            
+            println("No category at index path \(indexPath.section)")
         }
+        
+
 
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // update product status
-        products[indexPath.row].toggleTickedOff()
-        
+        var key: String = Array(categorizedProducts.keys)[indexPath.section]
+        if let products = categorizedProducts[key] as [Product]? {
+            products[indexPath.row].toggleTickedOff()
+        }
+                
         // reload data
         self.tableView.reloadData()
         
