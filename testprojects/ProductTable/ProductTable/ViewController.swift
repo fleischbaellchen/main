@@ -63,20 +63,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let array = products {
             return array.count
         }
-        return 10
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as UITableViewCell
         
-        let product: Product = self.products[indexPath.row]
-        cell.textLabel?.text = product.name
+        if let product: Product = self.products[indexPath.row] as Product? {
+            cell.textLabel?.text = product.name
+            if product.tickedOff == false {
+                cell.textLabel?.textColor = UIColor.blackColor()
+            } else {
+                cell.textLabel?.textColor = UIColor.lightGrayColor()
+            }
+        } else {
+            println("No product at index path \(indexPath.row)")
+            
+        }
 
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected cell #\(indexPath.row)!")
+        // update product status
+        products[indexPath.row].toggleTickedOff()
+        
+        // reload data
+        self.tableView.reloadData()
+        
+        // deselect row
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

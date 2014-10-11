@@ -15,11 +15,13 @@ class Product {
     var name: String!
     var catPath: [String]!
     var addedDate: NSDate!
+    var tickedOff: Bool!
     
     // Init Product from JSON
     init(data: JSON, ean: String) {
         self.EAN = ean
         self.addedDate = NSDate()
+        self.tickedOff = false
         
         self.catPath = []
         for (index: String, subJson: JSON) in data["catPath"] {
@@ -35,6 +37,10 @@ class Product {
         }
         
         println("Created product with name \(name)")
+    }
+    
+    func toggleTickedOff() {
+        self.tickedOff = !self.tickedOff        
     }
     
 }
