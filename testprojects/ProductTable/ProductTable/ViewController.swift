@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
                 // Extract JSON and create Product
                 let json = JSON(data: data)
-                if json.string != nil {
+                if json {
                     self.products.append(Product(data: json, ean: EAN))
                 } else {
                     // Handle no product data error!
