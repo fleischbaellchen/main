@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYi-oR-Z4G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WYi-oR-Z4G">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,19 +25,6 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBA-QO-3FO" id="YOH-RV-W0Q">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dw2-j7-nry">
-                                                    <rect key="frame" x="8" y="13" width="584" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Dw2-j7-nry" firstAttribute="trailing" secondItem="YOH-RV-W0Q" secondAttribute="trailingMargin" id="CgW-U8-kEI"/>
-                                                <constraint firstItem="Dw2-j7-nry" firstAttribute="leading" secondItem="YOH-RV-W0Q" secondAttribute="leadingMargin" id="fTl-3U-JWS"/>
-                                                <constraint firstItem="Dw2-j7-nry" firstAttribute="top" secondItem="YOH-RV-W0Q" secondAttribute="topMargin" constant="5" id="hNy-iW-scz"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -54,6 +40,7 @@
                         <barButtonItem systemItem="add" id="u47-zc-FZz">
                             <connections>
                                 <action selector="getProduct" destination="BYZ-38-t0r" id="7ND-3h-QIA"/>
+                                <segue destination="cnY-gg-0WQ" kind="presentation" id="31c-Oi-78p"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -66,6 +53,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="857" y="196"/>
+        </scene>
+        <!--Scan View Controller-->
+        <scene sceneID="QAo-Hg-lmm">
+            <objects>
+                <viewController storyboardIdentifier="ScanViewController" id="cnY-gg-0WQ" customClass="ScanViewController" customModule="ProductTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b6P-cE-Bhy"/>
+                        <viewControllerLayoutGuide type="bottom" id="WvX-1J-bVK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bT8-8m-5rH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOE-sH-WMQ" customClass="PreviewView" customModule="ProductTable" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJj-OH-fHG">
+                                        <rect key="frame" x="247" y="556" width="107" height="30"/>
+                                        <state key="normal" title="Finish scanning">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedFinish" destination="cnY-gg-0WQ" eventType="touchUpInside" id="Mh7-Cu-Fte"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GJj-OH-fHG" secondAttribute="bottom" constant="14" id="T9g-PM-ujv"/>
+                                    <constraint firstItem="GJj-OH-fHG" firstAttribute="centerX" secondItem="GOE-sH-WMQ" secondAttribute="centerX" id="fO5-rh-yiA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GOE-sH-WMQ" secondAttribute="trailing" id="Kbb-Dp-bqn"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="bottom" secondItem="WvX-1J-bVK" secondAttribute="top" id="d4m-4R-EbR"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="leading" secondItem="bT8-8m-5rH" secondAttribute="leading" id="iTy-n9-XGn"/>
+                            <constraint firstItem="GOE-sH-WMQ" firstAttribute="top" secondItem="bT8-8m-5rH" secondAttribute="top" id="kkV-Ll-gRO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="GOE-sH-WMQ" id="Hb0-hv-udQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5V-q4-00f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QXO-at-vv9">
