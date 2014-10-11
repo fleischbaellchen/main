@@ -26,6 +26,7 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         
+        
         self._sessionManager = SessionManager(delegate: self)
         if let sessionManager = _sessionManager {
             sessionManager.startRunning()
