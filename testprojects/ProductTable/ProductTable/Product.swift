@@ -13,20 +13,41 @@ class Product {
     var EAN: String!
     var id: String! // The id we received from the API
     var name: String!
+    var mainCategory: String!
     var catPath: [String]!
     var addedDate: NSDate!
+    var tickedOff: Bool!
     
     // Init Product from JSON
     init(data: JSON, ean: String) {
+        self.EAN = ean
+        self.addedDate = NSDate()
+        self.tickedOff = false
+        
         self.catPath = []
         for (index: String, subJson: JSON) in data["catPath"] {
             self.catPath.append(subJson["name"].string!)
         }
-        self.EAN = ean
-        self.name = catPath[catPath.count - 1] // Product name is last item
-        self.addedDate = NSDate()
+        
+        if let name = data["name"].string {
+            // There's a name property
+            self.name = name;
+        } else {
+            // No name, take it from catPath
+            self.name = catPath[catPath.count - 1]
+        }
+        
+        if let cat = self.catPath[2] as String? {
+            self.mainCategory = cat
+        } else {
+            self.mainCategory = "Uncategorized"
+        }
         
         println("Created product with name \(name)")
+    }
+    
+    func toggleTickedOff() {
+        self.tickedOff = !self.tickedOff        
     }
     
 }
