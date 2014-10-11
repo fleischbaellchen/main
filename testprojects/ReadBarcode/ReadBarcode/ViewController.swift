@@ -10,9 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var previewView: PreviewView!
+    var _sessionManager: SessionManager?
+    var stepTimer: NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self._sessionManager = SessionManager()
+        if let sessionManager = _sessionManager {
+            sessionManager.startRunning()
+            self.previewView.session = sessionManager._captureSession!
+        }
+        self.stepTimer = NSTimer(timeInterval: 0.15, target: self, selector: "step", userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +31,10 @@ class ViewController: UIViewController {
     }
 
 
+    //MARK: - Barcode Sequencer
+    func step() {
+        println("Step")
+    }
+    
 }
 

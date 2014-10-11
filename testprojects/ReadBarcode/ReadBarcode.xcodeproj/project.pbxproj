@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5537332819E8C5F3007455CA /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5537332719E8C5F3007455CA /* PreviewView.swift */; };
 		55611EE419E87FD30016ACB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55611EE319E87FD30016ACB7 /* AppDelegate.swift */; };
 		55611EE619E87FD30016ACB7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55611EE519E87FD30016ACB7 /* ViewController.swift */; };
 		55611EE919E87FD30016ACB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55611EE719E87FD30016ACB7 /* Main.storyboard */; };
 		55611EEB19E87FD30016ACB7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55611EEA19E87FD30016ACB7 /* Images.xcassets */; };
 		55611EEE19E87FD30016ACB7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55611EEC19E87FD30016ACB7 /* LaunchScreen.xib */; };
 		55611EFA19E87FD30016ACB7 /* ReadBarcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55611EF919E87FD30016ACB7 /* ReadBarcodeTests.swift */; };
+		55611F0419E8A69A0016ACB7 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55611F0319E8A69A0016ACB7 /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5537332719E8C5F3007455CA /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		55611EDE19E87FD30016ACB7 /* ReadBarcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadBarcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55611EE219E87FD30016ACB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55611EE319E87FD30016ACB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		55611EF319E87FD30016ACB7 /* ReadBarcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadBarcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55611EF819E87FD30016ACB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55611EF919E87FD30016ACB7 /* ReadBarcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBarcodeTests.swift; sourceTree = "<group>"; };
+		55611F0319E8A69A0016ACB7 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				55611EE319E87FD30016ACB7 /* AppDelegate.swift */,
 				55611EE519E87FD30016ACB7 /* ViewController.swift */,
+				55611F0319E8A69A0016ACB7 /* SessionManager.swift */,
+				5537332719E8C5F3007455CA /* PreviewView.swift */,
 				55611EE719E87FD30016ACB7 /* Main.storyboard */,
 				55611EEA19E87FD30016ACB7 /* Images.xcassets */,
 				55611EEC19E87FD30016ACB7 /* LaunchScreen.xib */,
@@ -213,7 +219,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				55611EE619E87FD30016ACB7 /* ViewController.swift in Sources */,
+				5537332819E8C5F3007455CA /* PreviewView.swift in Sources */,
 				55611EE419E87FD30016ACB7 /* AppDelegate.swift in Sources */,
+				55611F0419E8A69A0016ACB7 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReadBarcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -347,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReadBarcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -405,6 +415,7 @@
 				55611EFF19E87FD30016ACB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55611F0019E87FD30016ACB7 /* Build configuration list for PBXNativeTarget "ReadBarcodeTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +424,7 @@
 				55611F0219E87FD30016ACB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
