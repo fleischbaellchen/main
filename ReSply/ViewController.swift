@@ -61,11 +61,14 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         let deleteAction = UIAlertAction(title: "Delete List", style: .Destructive) { (action) in
+            
+            var indexSet = NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections()))
+            
+            self.tableView.beginUpdates()
+            self.tableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
             // Clear list
             self.categorizedProducts = Dictionary<String, [Product]!>()
-            
-            // Update table view
-            self.tableView.reloadData()
+            self.tableView.endUpdates()
         }
         alertController.addAction(deleteAction)
         self.presentViewController(alertController, animated: true, completion: nil)
