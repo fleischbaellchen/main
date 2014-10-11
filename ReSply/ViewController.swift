@@ -76,9 +76,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -111,8 +116,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.textLabel?.text = product.name
                 if product.tickedOff == false {
                     cell.textLabel?.textColor = UIColor.blackColor()
+                    cell.imageView?.image = UIImage(named: "Checkbox.png")
                 } else {
                     cell.textLabel?.textColor = UIColor.lightGrayColor()
+                    cell.imageView?.image = UIImage(named: "Checkbox_checked.png")
                 }
             } else {
                 println("No product at index path \(indexPath.row)")
@@ -122,8 +129,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             println("No category at index path \(indexPath.section)")
         }
         
-
-
         return cell
     }
     

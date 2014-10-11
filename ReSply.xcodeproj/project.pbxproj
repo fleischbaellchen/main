@@ -18,6 +18,10 @@
 		AA4D876A19E8938D00AB2949 /* ReSplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D876919E8938D00AB2949 /* ReSplyTests.swift */; };
 		AA4D877419E895C300AB2949 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D877319E895C300AB2949 /* Product.swift */; };
 		AA4D877619E896E200AB2949 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D877519E896E200AB2949 /* SwiftyJSON.swift */; };
+		AAAD12D419E9809D00C5C998 /* Checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */; };
+		AAAD12D519E9809D00C5C998 /* Checkbox_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */; };
+		AAAD12D619E9809D00C5C998 /* Checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */; };
+		AAAD12D719E9809D00C5C998 /* Checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		AA4D876919E8938D00AB2949 /* ReSplyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSplyTests.swift; sourceTree = "<group>"; };
 		AA4D877319E895C300AB2949 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AA4D877519E896E200AB2949 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@3x.png"; sourceTree = "<group>"; };
+		AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@2x.png"; sourceTree = "<group>"; };
+		AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,16 @@
 				AA4D875119E8938D00AB2949 /* Supporting Files */,
 				55B117EC19E8D7BA00D4954E /* ScanViewController.swift */,
 			);
-			name = ReSply;
 			path = ReSply;
 			sourceTree = "<group>";
 		};
 		AA4D875119E8938D00AB2949 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */,
+				AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */,
+				AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */,
+				AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */,
 				AA4D875219E8938D00AB2949 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -117,7 +128,6 @@
 				AA4D876919E8938D00AB2949 /* ReSplyTests.swift */,
 				AA4D876719E8938D00AB2949 /* Supporting Files */,
 			);
-			name = ReSplyTests;
 			path = ReSplyTests;
 			sourceTree = "<group>";
 		};
@@ -210,8 +220,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */,
+				AAAD12D419E9809D00C5C998 /* Checkbox_checked@2x.png in Resources */,
 				AA4D875E19E8938D00AB2949 /* LaunchScreen.xib in Resources */,
+				AAAD12D519E9809D00C5C998 /* Checkbox_checked@3x.png in Resources */,
 				AA4D875B19E8938D00AB2949 /* Images.xcassets in Resources */,
+				AAAD12D619E9809D00C5C998 /* Checkbox@2x.png in Resources */,
+				AAAD12D719E9809D00C5C998 /* Checkbox@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
