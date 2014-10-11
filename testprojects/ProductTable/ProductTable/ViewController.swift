@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ScanViewControllerDelegate {
     
     @IBOutlet var tableView: UITableView!
     
     var products: [Product]! = []
     
-    @IBAction func getProduct() {
-        let EAN = "7617027097710"
+    func getProduct(EAN: String) {
+        //let EAN = "7617027097710"
         let url = NSURL(string: "http://api.autoidlabs.ch//products/\(EAN)")
         let request = NSURLRequest(URL: url)
     
@@ -78,6 +78,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // from http://www.raywenderlich.com/50310/storyboards-tutorial-in-ios-7-part-2
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // this if triggers a runtime error and i don't know why
+        //if segue.identifier == "ScanViewController" {
+            // from http://makeapppie.com/2014/07/05/using-delegates-and-segues-part-2-the-pizza-demo-app/
+            var scanViewController = segue.destinationViewController as? ScanViewController
+            scanViewController?.delegate = self
+        //}
+    }
+    
+    //MARK: - ScanViewControllerDelegate
+    func scanViewControllerDidStopScanning(controller: ScanViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func scanViewControllerScanned(barcode: String) {
+        getProduct(barcode)
     }
     
 }

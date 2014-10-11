@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol ScanViewControllerDelegate {
+    func scanViewControllerDidStopScanning(controller: ScanViewController)
+    func scanViewControllerScanned(barcode: String)
+}
+
 class ScanViewController: UIViewController, SessionManagerDelegate {
     
     @IBOutlet var previewView: PreviewView!
     var _sessionManager: SessionManager?
     var stepTimer: NSTimer?
+    
+    var delegate: ScanViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +36,14 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedFinish() {
+        delegate.scanViewControllerDidStopScanning(self)
+    }
+    
     //MARK: - SessionManagerDelegate
-    func scannedBarcode(barcode: String) {
+    func scanned(barcode: String) {
         println("scanned barcode \(barcode)")
+        delegate.scanViewControllerScanned(barcode)
     }
 
     

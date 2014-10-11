@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 protocol SessionManagerDelegate {
-    func scannedBarcode(barcode: String)
+    func scanned(barcode: String)
 }
 
 class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
@@ -94,7 +94,7 @@ class SessionManager: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                 barcode == barcodeString
             }).count < 1) {
                 scannedBarcodes.append(barcodeString) // add new barcode to scanned barcodes
-                delegate.scannedBarcode(barcodeString) // send barcode to delegate
+                delegate.scanned(barcodeString) // send barcode to delegate
             }
         }
     }

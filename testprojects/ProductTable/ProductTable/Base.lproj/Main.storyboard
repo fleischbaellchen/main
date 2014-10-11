@@ -57,7 +57,7 @@
         <!--Scan View Controller-->
         <scene sceneID="QAo-Hg-lmm">
             <objects>
-                <viewController id="cnY-gg-0WQ" customClass="ScanViewController" customModule="ProductTable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanViewController" id="cnY-gg-0WQ" customClass="ScanViewController" customModule="ProductTable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6P-cE-Bhy"/>
                         <viewControllerLayoutGuide type="bottom" id="WvX-1J-bVK"/>
@@ -68,7 +68,22 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOE-sH-WMQ" customClass="PreviewView" customModule="ProductTable" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJj-OH-fHG">
+                                        <rect key="frame" x="247" y="556" width="107" height="30"/>
+                                        <state key="normal" title="Finish scanning">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedFinish" destination="cnY-gg-0WQ" eventType="touchUpInside" id="Mh7-Cu-Fte"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GJj-OH-fHG" secondAttribute="bottom" constant="14" id="T9g-PM-ujv"/>
+                                    <constraint firstItem="GJj-OH-fHG" firstAttribute="centerX" secondItem="GOE-sH-WMQ" secondAttribute="centerX" id="fO5-rh-yiA"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
