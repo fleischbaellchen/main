@@ -7,3 +7,5 @@ This iOS app was written at [HackZurich 2014](http://www.hackzurich.com/). It us
 The project is written in Swift and uses [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) for JSON parsing and [FMDB](https://github.com/ccgus/fmdb) as an SQLite wrapper.
 
 Thanks to Apple's Camera Team for the support!
+
+Authors: David Keller & Zeno Koller
