@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E819E8D6C800D4954E /* PreviewView.swift */; };
+		55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E919E8D6C800D4954E /* SessionManager.swift */; };
 		AA4D875419E8938D00AB2949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875319E8938D00AB2949 /* AppDelegate.swift */; };
 		AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875519E8938D00AB2949 /* ViewController.swift */; };
 		AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4D875719E8938D00AB2949 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55B117E819E8D6C800D4954E /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		55B117E919E8D6C800D4954E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		AA4D874E19E8938D00AB2949 /* ProductTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4D875219E8938D00AB2949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4D875319E8938D00AB2949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		AA4D875019E8938D00AB2949 /* ProductTable */ = {
 			isa = PBXGroup;
 			children = (
+				55B117E819E8D6C800D4954E /* PreviewView.swift */,
+				55B117E919E8D6C800D4954E /* SessionManager.swift */,
 				AA4D875319E8938D00AB2949 /* AppDelegate.swift */,
 				AA4D877319E895C300AB2949 /* Product.swift */,
 				AA4D875519E8938D00AB2949 /* ViewController.swift */,
@@ -218,7 +224,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */,
 				AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */,
+				55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */,
 				AA4D875419E8938D00AB2949 /* AppDelegate.swift in Sources */,
 				AA4D877419E895C300AB2949 /* Product.swift in Sources */,
 				AA4D877619E896E200AB2949 /* SwiftyJSON.swift in Sources */,
@@ -415,6 +423,7 @@
 				AA4D876F19E8938D00AB2949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA4D877019E8938D00AB2949 /* Build configuration list for PBXNativeTarget "ProductTableTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				AA4D877219E8938D00AB2949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
