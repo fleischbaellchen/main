@@ -1,6 +1,6 @@
 //
 //  Product.swift
-//  ProductTable
+//  ReSply
 //
 //  Created by Zeno Koller on 11.10.14.
 //  Copyright (c) 2014 Zeno Koller. All rights reserved.

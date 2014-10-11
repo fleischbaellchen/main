@@ -1,6 +1,6 @@
 //
-//  ProductTableTests.swift
-//  ProductTableTests
+//  ReSplyTests.swift
+//  ReSplyTests
 //
 //  Created by Zeno Koller on 11.10.14.
 //  Copyright (c) 2014 Zeno Koller. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class ProductTableTests: XCTestCase {
+class ReSplyTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

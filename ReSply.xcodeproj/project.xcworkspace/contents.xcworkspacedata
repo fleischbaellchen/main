@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ProductTable.xcodeproj">
+      location = "self:ReSply.xcodeproj">
    </FileRef>
 </Workspace>
