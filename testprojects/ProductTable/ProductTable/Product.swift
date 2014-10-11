@@ -18,13 +18,21 @@ class Product {
     
     // Init Product from JSON
     init(data: JSON, ean: String) {
+        self.EAN = ean
+        self.addedDate = NSDate()
+        
         self.catPath = []
         for (index: String, subJson: JSON) in data["catPath"] {
             self.catPath.append(subJson["name"].string!)
         }
-        self.EAN = ean
-        self.name = catPath[catPath.count - 1] // Product name is last item
-        self.addedDate = NSDate()
+        
+        if let name = data["name"].string {
+            // There's a name property
+            self.name = name;
+        } else {
+            // No name, take it from catPath
+            self.name = catPath[catPath.count - 1]
+        }
         
         println("Created product with name \(name)")
     }
