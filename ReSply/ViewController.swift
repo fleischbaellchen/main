@@ -12,9 +12,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var tableView: UITableView!
     
+    let modelManager = ModelManager()
     var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
     
-    func getProduct(EAN: String) {
+    // Calls Migros API to get Product
+    func getProductFromAPI(EAN: String) {
         //let EAN = "7617027097710"
         let url = NSURL(string: "http://api.autoidlabs.ch//products/\(EAN)")
         let request = NSURLRequest(URL: url)
@@ -43,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             self.categorizedProducts[product.mainCategory] = []
                             self.categorizedProducts[product.mainCategory]!.append(product)
                         }
+                        self.modelManager.insertProduct(product)
                     } else {
                         println("Failed to create product")
                     }
@@ -58,6 +61,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         })
     }
 
+    // Gets Product from DB
+    func getProductFromDB(EAN: String) {
+        if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
+            // check if key exists
+            if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
+                self.categorizedProducts[product.mainCategory]!.append(product)
+            } else {
+                self.categorizedProducts[product.mainCategory] = []
+                self.categorizedProducts[product.mainCategory]!.append(product)
+            }
+            self.modelManager.insertProduct(EAN, inList: modelManager.listID)
+        } else {
+            println("Failed to create product")
+        }
+    }
+    
     @IBAction func clearShoppingList() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -75,8 +94,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        // Fetch existing data
+        self.categorizedProducts = modelManager.getProductsFor(modelManager.listID)
     }
 
     override func didReceiveMemoryWarning() {
@@ -157,7 +176,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func scanViewControllerScanned(barcode: String) {
-        getProduct(barcode)
+        if self.modelManager.alreadyInProducts(barcode) {
+            getProductFromDB(barcode)
+        } else {
+            getProductFromAPI(barcode)
+        }
     }
     
 }

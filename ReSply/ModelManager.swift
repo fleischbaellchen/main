@@ -10,12 +10,14 @@ import UIKit
 
 class ModelManager {
     let db: FMDatabase
+    let listID = 1
     
     init() {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentDirectory: String = paths[0] as String
         let databasePath = documentDirectory.stringByAppendingPathComponent("data.db")
-
+        var needsNewList = false
+        
         // copy empty database if it doesn't exist
         if (NSFileManager.defaultManager().fileExistsAtPath(databasePath)) {
             let bundleDatabasePath = NSBundle.mainBundle().pathForResource("empty", ofType: ".db")
@@ -24,9 +26,17 @@ class ModelManager {
                 println("Undable to copy database. Abort")
                 abort() // stop running if the database can't be copied
             }
+            
+            needsNewList = true
         }
         
         db = FMDatabase(path: databasePath)
+        
+        if needsNewList == true {
+            db.open()
+            db.executeUpdate("insert into ShoppingList values(?)", withArgumentsInArray: [listID])
+            db.close()
+        }
     }
     
     func alreadyInProducts(ean: String) -> Bool {
@@ -55,6 +65,10 @@ class ModelManager {
         
         db.close()
         return success
+    }
+    
+    func insertProduct(product: Product) -> Bool {
+        return insertProduct(product.EAN, inProductAndList: self.listID, withName: product.name, andCategory: product.mainCategory)
     }
     
     func insertProduct(ean: String, inProductAndList list: Int, withName name: String, andCategory category: String) -> Bool {
