@@ -34,13 +34,18 @@ class Product {
             self.name = name;
         } else {
             // No name, take it from catPath
-            self.name = catPath[catPath.count - 1]
+            let catPathDepth = catPath.count - 1
+            if catPathDepth > 3 { // Deep catPath. Take last 2 categories
+                self.name = "\(catPath[catPathDepth - 1]),  \(catPath[catPathDepth])"
+            } else { // Shallow catpath. Take most specific
+                self.name = catPath[catPathDepth]
+            }
         }
         
         if let cat = self.catPath[2] as String? {
             self.mainCategory = cat
         } else {
-            self.mainCategory = "Uncategorized"
+            self.mainCategory = "Nicht kategorisiert"
         }
         
         println("Created product with name \(name)")
