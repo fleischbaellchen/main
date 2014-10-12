@@ -10,6 +10,8 @@
 		55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E819E8D6C800D4954E /* PreviewView.swift */; };
 		55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117E919E8D6C800D4954E /* SessionManager.swift */; };
 		55B117ED19E8D7BA00D4954E /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B117EC19E8D7BA00D4954E /* ScanViewController.swift */; };
+		55FA8E3919E9C62F004CBC66 /* empty.db in Resources */ = {isa = PBXBuildFile; fileRef = 55FA8E3819E9C62F004CBC66 /* empty.db */; };
+		55FA8E3B19E9C743004CBC66 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA8E3A19E9C743004CBC66 /* ModelManager.swift */; };
 		AA4D875419E8938D00AB2949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875319E8938D00AB2949 /* AppDelegate.swift */; };
 		AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D875519E8938D00AB2949 /* ViewController.swift */; };
 		AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4D875719E8938D00AB2949 /* Main.storyboard */; };
@@ -18,10 +20,7 @@
 		AA4D876A19E8938D00AB2949 /* ReSplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D876919E8938D00AB2949 /* ReSplyTests.swift */; };
 		AA4D877419E895C300AB2949 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D877319E895C300AB2949 /* Product.swift */; };
 		AA4D877619E896E200AB2949 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4D877519E896E200AB2949 /* SwiftyJSON.swift */; };
-		AAAD12D419E9809D00C5C998 /* Checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */; };
-		AAAD12D519E9809D00C5C998 /* Checkbox_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */; };
-		AAAD12D619E9809D00C5C998 /* Checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */; };
-		AAAD12D719E9809D00C5C998 /* Checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */; };
+		FDDA647B1794E86C881611B6 /* libPods-ReSply.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A624E2F1A5976659D3470E /* libPods-ReSply.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08A624E2F1A5976659D3470E /* libPods-ReSply.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReSply.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B940B0567887144F28D566 /* Pods-ReSply.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSply.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSply/Pods-ReSply.release.xcconfig"; sourceTree = "<group>"; };
 		55B117E819E8D6C800D4954E /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		55B117E919E8D6C800D4954E /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		55B117EC19E8D7BA00D4954E /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		55FA8E3719E9B79F004CBC66 /* ReSply-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReSply-Bridging-Header.h"; sourceTree = "<group>"; };
+		55FA8E3819E9C62F004CBC66 /* empty.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty.db; sourceTree = "<group>"; };
+		55FA8E3A19E9C743004CBC66 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		796A0BAAFBD3A8F2C77BA00C /* Pods-ReSply.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSply.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSply/Pods-ReSply.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4D874E19E8938D00AB2949 /* ReSply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA4D875219E8938D00AB2949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA4D875319E8938D00AB2949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,10 +55,6 @@
 		AA4D876919E8938D00AB2949 /* ReSplyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReSplyTests.swift; sourceTree = "<group>"; };
 		AA4D877319E895C300AB2949 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AA4D877519E896E200AB2949 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@2x.png"; sourceTree = "<group>"; };
-		AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@3x.png"; sourceTree = "<group>"; };
-		AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@2x.png"; sourceTree = "<group>"; };
-		AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDDA647B1794E86C881611B6 /* libPods-ReSply.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81F3486D8D6437983949090E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				796A0BAAFBD3A8F2C77BA00C /* Pods-ReSply.debug.xcconfig */,
+				14B940B0567887144F28D566 /* Pods-ReSply.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AA4D874519E8938D00AB2949 = {
 			isa = PBXGroup;
 			children = (
 				AA4D875019E8938D00AB2949 /* ReSply */,
 				AA4D876619E8938D00AB2949 /* ReSplyTests */,
 				AA4D874F19E8938D00AB2949 /* Products */,
+				81F3486D8D6437983949090E /* Pods */,
+				BDD106B9A9C1E5EB49A14391 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +111,7 @@
 				55B117E819E8D6C800D4954E /* PreviewView.swift */,
 				55B117E919E8D6C800D4954E /* SessionManager.swift */,
 				AA4D875319E8938D00AB2949 /* AppDelegate.swift */,
+				55FA8E3A19E9C743004CBC66 /* ModelManager.swift */,
 				AA4D877319E895C300AB2949 /* Product.swift */,
 				AA4D875519E8938D00AB2949 /* ViewController.swift */,
 				AA4D877519E896E200AB2949 /* SwiftyJSON.swift */,
@@ -113,10 +127,8 @@
 		AA4D875119E8938D00AB2949 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AAAD12D019E9809D00C5C998 /* Checkbox_checked@2x.png */,
-				AAAD12D119E9809D00C5C998 /* Checkbox_checked@3x.png */,
-				AAAD12D219E9809D00C5C998 /* Checkbox@2x.png */,
-				AAAD12D319E9809D00C5C998 /* Checkbox@3x.png */,
+				55FA8E3819E9C62F004CBC66 /* empty.db */,
+				55FA8E3719E9B79F004CBC66 /* ReSply-Bridging-Header.h */,
 				AA4D875219E8938D00AB2949 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -139,6 +151,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BDD106B9A9C1E5EB49A14391 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08A624E2F1A5976659D3470E /* libPods-ReSply.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA4D876D19E8938D00AB2949 /* Build configuration list for PBXNativeTarget "ReSply" */;
 			buildPhases = (
+				D313C977F583B651ABDBD8BE /* Check Pods Manifest.lock */,
 				AA4D874A19E8938D00AB2949 /* Sources */,
 				AA4D874B19E8938D00AB2949 /* Frameworks */,
 				AA4D874C19E8938D00AB2949 /* Resources */,
+				74462822544C8A1F709D68BC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,12 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */,
-				AAAD12D419E9809D00C5C998 /* Checkbox_checked@2x.png in Resources */,
 				AA4D875E19E8938D00AB2949 /* LaunchScreen.xib in Resources */,
-				AAAD12D519E9809D00C5C998 /* Checkbox_checked@3x.png in Resources */,
 				AA4D875B19E8938D00AB2949 /* Images.xcassets in Resources */,
-				AAAD12D619E9809D00C5C998 /* Checkbox@2x.png in Resources */,
-				AAAD12D719E9809D00C5C998 /* Checkbox@3x.png in Resources */,
+				55FA8E3919E9C62F004CBC66 /* empty.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,12 +257,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		74462822544C8A1F709D68BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReSply/Pods-ReSply-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D313C977F583B651ABDBD8BE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA4D874A19E8938D00AB2949 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				55B117EA19E8D6C800D4954E /* PreviewView.swift in Sources */,
+				55FA8E3B19E9C743004CBC66 /* ModelManager.swift in Sources */,
 				55B117ED19E8D7BA00D4954E /* ScanViewController.swift in Sources */,
 				AA4D875619E8938D00AB2949 /* ViewController.swift in Sources */,
 				55B117EB19E8D6C800D4954E /* SessionManager.swift in Sources */,
@@ -372,22 +425,26 @@
 		};
 		AA4D876E19E8938D00AB2949 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 796A0BAAFBD3A8F2C77BA00C /* Pods-ReSply.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReSply/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ReSply;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReSply/ReSply-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AA4D876F19E8938D00AB2949 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B940B0567887144F28D566 /* Pods-ReSply.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ReSply/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = ReSply;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReSply/ReSply-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

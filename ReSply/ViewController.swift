@@ -8,11 +8,15 @@
 
 import UIKit
 
+
 class ViewController: UITableViewController, ScanViewControllerDelegate {
-        
+    
+    let modelManager = ModelManager()
+
     var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
     
-    func getProduct(EAN: String) {
+    // Calls Migros API to get Product
+    func getProductFromAPI(EAN: String) {
         //let EAN = "7617027097710"
         let url = NSURL(string: "http://api.autoidlabs.ch//products/\(EAN)")
         let request = NSURLRequest(URL: url)
@@ -41,6 +45,7 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
                             self.categorizedProducts[product.mainCategory] = []
                             self.categorizedProducts[product.mainCategory]!.append(product)
                         }
+                        self.modelManager.insertProduct(product)
                     } else {
                         println("Failed to create product")
                     }
@@ -56,6 +61,27 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         })
     }
 
+    // Gets Product from DB
+    func getProductFromDB(EAN: String) {
+        if !modelManager.alreadyIn(modelManager.listID, ean: EAN) {
+            if modelManager.insertProduct(EAN, inList: modelManager.listID) {
+                if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
+                    if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
+                        self.categorizedProducts[product.mainCategory]!.append(product)
+                    } else {
+                        self.categorizedProducts[product.mainCategory] = []
+                        self.categorizedProducts[product.mainCategory]!.append(product)
+                    }
+                }
+            } else {
+                println("Failed to insert product into current list")
+            }
+        } else {
+            // would be nice if it would work. you need to have to update the view, too
+            modelManager.check(false, ean: EAN, inList: modelManager.listID) // uncheck item if it's checked
+        }
+    }
+    
     @IBAction func clearShoppingList() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -76,7 +102,8 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Fetch existing data
+        self.categorizedProducts = modelManager.getProductsFor(modelManager.listID)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -137,7 +164,9 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         // update product status
         var key: String = Array(categorizedProducts.keys)[indexPath.section]
         if let products = categorizedProducts[key] as [Product]? {
-            products[indexPath.row].toggleTickedOff()
+            let product = products[indexPath.row];
+            let status = product.toggleTickedOff()
+            modelManager.check(status, ean: product.EAN, inList: modelManager.listID)
         }
                 
         // reload data
@@ -180,7 +209,11 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
     }
     
     func scanViewControllerScanned(barcode: String) {
-        getProduct(barcode)
+        if self.modelManager.alreadyInProducts(barcode) {
+            getProductFromDB(barcode)
+        } else {
+            getProductFromAPI(barcode)
+        }
     }
     
 }

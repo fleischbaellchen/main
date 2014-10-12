@@ -11,12 +11,18 @@ import Foundation
 class Product {
 
     var EAN: String!
-    var id: String! // The id we received from the API
     var name: String!
     var mainCategory: String!
-    var catPath: [String]!
     var addedDate: NSDate!
     var tickedOff: Bool!
+    
+    init(ean: String, name: String, mainCategory: String, addedDate: NSDate, tickedOff: Bool) {
+        self.EAN = ean
+        self.name = name
+        self.mainCategory = mainCategory
+        self.addedDate = addedDate
+        self.tickedOff = tickedOff
+    }
     
     // Init Product from JSON
     init(data: JSON, ean: String) {
@@ -24,15 +30,15 @@ class Product {
         self.addedDate = NSDate()
         self.tickedOff = false
         
-        self.catPath = []
+        var catPath: [String] = [String]()
         for (index: String, subJson: JSON) in data["catPath"] {
-            self.catPath.append(subJson["name"].string!)
+            catPath.append(subJson["name"].string!)
         }
         
-        if let name = data["name"].string {
+        //if let name = data["name"].string {
             // There's a name property
-            self.name = name;
-        } else {
+        //    self.name = name;
+        //} else {
             // No name, take it from catPath
             let catPathDepth = catPath.count - 1
             if catPathDepth > 3 { // Deep catPath. Take last 2 categories
@@ -40,9 +46,9 @@ class Product {
             } else { // Shallow catpath. Take most specific
                 self.name = catPath[catPathDepth]
             }
-        }
+        //}
         
-        if let cat = self.catPath[2] as String? {
+        if let cat = catPath[2] as String? {
             self.mainCategory = cat
         } else {
             self.mainCategory = "Nicht kategorisiert"
@@ -51,8 +57,9 @@ class Product {
         println("Created product with name \(name)")
     }
     
-    func toggleTickedOff() {
-        self.tickedOff = !self.tickedOff        
+    func toggleTickedOff() -> Bool {
+        self.tickedOff = !self.tickedOff
+        return self.tickedOff
     }
     
 }
