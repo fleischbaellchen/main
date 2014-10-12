@@ -17,8 +17,11 @@ class Product {
     var tickedOff: Bool!
     
     init(ean: String, name: String, mainCategory: String, addedDate: NSDate, tickedOff: Bool) {
-        self.EAN = ean;
-        
+        self.EAN = ean
+        self.name = name
+        self.mainCategory = mainCategory
+        self.addedDate = addedDate
+        self.tickedOff = tickedOff
     }
     
     // Init Product from JSON
