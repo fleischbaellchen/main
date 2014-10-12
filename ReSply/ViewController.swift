@@ -12,8 +12,8 @@ import UIKit
 class ViewController: UITableViewController, ScanViewControllerDelegate {
     
     let modelManager = ModelManager()
-
     var categorizedProducts: [String: [Product]!] = Dictionary<String, [Product]!>()
+    var shoppingMode = false;
     
     // Calls Migros API to get Product
     func getProductFromAPI(EAN: String) {
@@ -66,7 +66,7 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         if !modelManager.alreadyIn(modelManager.listID, ean: EAN) {
             if modelManager.insertProduct(EAN, inList: modelManager.listID) {
                 if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
-                    if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
+                    if let array = self.categorizedProducts[product.mainCategory] as [Product]? {
                         self.categorizedProducts[product.mainCategory]!.append(product)
                     } else {
                         self.categorizedProducts[product.mainCategory] = []
@@ -77,8 +77,38 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
                 println("Failed to insert product into current list")
             }
         } else {
-            // would be nice if it would work. you need to have to update the view, too
-            modelManager.check(false, ean: EAN, inList: modelManager.listID) // uncheck item if it's checked
+            // We already have this in the list. Uncheck it
+            if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
+                if let array = self.categorizedProducts[product.mainCategory] as [Product]? {
+                    if let index = find(array, product) {
+                        if let tableViewProduct = array[index] as Product? {
+                            tableViewProduct.tickedOff = false
+                            modelManager.check(false, ean: tableViewProduct.EAN, inList: modelManager.listID)
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Checks off product from list
+    func checkOffProduct(EAN: String) {
+        if modelManager.alreadyIn(modelManager.listID, ean: EAN) {
+            if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
+                if let array = self.categorizedProducts[product.mainCategory] as [Product]? {
+                    if let index = find(array, product) {
+                        if let tableViewProduct = array[index] as Product? {
+                            println("ticking off \(tableViewProduct.name)")
+                            tableViewProduct.tickedOff = true
+                            modelManager.check(true, ean: tableViewProduct.EAN, inList: modelManager.listID)
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        } else {
+            println("Product not found in list")
         }
     }
     
@@ -181,8 +211,18 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         // this if triggers a runtime error and i don't know why
         //if segue.identifier == "ScanViewController" {
             // from http://makeapppie.com/2014/07/05/using-delegates-and-segues-part-2-the-pizza-demo-app/
+        
+            if segue.identifier == "shoppingCameraSegue" {
+                shoppingMode = true
+            } else if segue.identifier == "scanningCameraSegue" {
+                shoppingMode = false
+            } else { // Not the correct segue
+                return
+            }
+        
             var scanViewController = segue.destinationViewController as? ScanViewController
             scanViewController?.delegate = self
+        
         //}
     }
     
@@ -203,16 +243,21 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         }
     }
     
+    
     //MARK: - ScanViewControllerDelegate
     func scanViewControllerDidStopScanning(controller: ScanViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func scanViewControllerScanned(barcode: String) {
-        if self.modelManager.alreadyInProducts(barcode) {
-            getProductFromDB(barcode)
+        if (shoppingMode == false) {
+            if self.modelManager.alreadyInProducts(barcode) {
+                getProductFromDB(barcode)
+            } else {
+                getProductFromAPI(barcode)
+            }
         } else {
-            getProductFromAPI(barcode)
+            checkOffProduct(barcode)
         }
     }
     

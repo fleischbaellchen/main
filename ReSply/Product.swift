@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Product {
+func == (lhs: Product, rhs: Product) -> Bool {
+    return lhs.EAN == rhs.EAN
+}
+
+class Product: Equatable {
 
     var EAN: String!
     var name: String!
@@ -61,5 +65,4 @@ class Product {
         self.tickedOff = !self.tickedOff
         return self.tickedOff
     }
-    
 }
