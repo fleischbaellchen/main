@@ -63,17 +63,22 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
 
     // Gets Product from DB
     func getProductFromDB(EAN: String) {
-        if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
-            // check if key exists
-            if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
-                self.categorizedProducts[product.mainCategory]!.append(product)
+        if !modelManager.alreadyIn(modelManager.listID, ean: EAN) {
+            if modelManager.insertProduct(EAN, inList: modelManager.listID) {
+                if let product = modelManager.getProductFor(EAN, inList: modelManager.listID) {
+                    if let arr = self.categorizedProducts[product.mainCategory] as [Product]? {
+                        self.categorizedProducts[product.mainCategory]!.append(product)
+                    } else {
+                        self.categorizedProducts[product.mainCategory] = []
+                        self.categorizedProducts[product.mainCategory]!.append(product)
+                    }
+                }
             } else {
-                self.categorizedProducts[product.mainCategory] = []
-                self.categorizedProducts[product.mainCategory]!.append(product)
+                println("Failed to insert product into current list")
             }
-            self.modelManager.insertProduct(EAN, inList: modelManager.listID)
         } else {
-            println("Failed to create product")
+            // would be nice if it would work. you need to have to update the view, too
+            modelManager.check(false, ean: EAN, inList: modelManager.listID) // uncheck item if it's checked
         }
     }
     
@@ -159,7 +164,9 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         // update product status
         var key: String = Array(categorizedProducts.keys)[indexPath.section]
         if let products = categorizedProducts[key] as [Product]? {
-            products[indexPath.row].toggleTickedOff()
+            let product = products[indexPath.row];
+            let status = product.toggleTickedOff()
+            modelManager.check(status, ean: product.EAN, inList: modelManager.listID)
         }
                 
         // reload data

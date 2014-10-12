@@ -50,6 +50,25 @@ class ModelManager {
         }
     }
     
+    func alreadyIn(list: Int, ean: String) -> Bool {
+        db.open()
+        
+        let result = db.executeQuery("select count(*) from ShoppingList where EAN=? and listId=?", withArgumentsInArray: [ean, list])
+        
+        var count: Int32 = 0
+        if result.next() {
+            count = result.intForColumnIndex(0)
+        }
+        
+        db.close()
+        
+        if (count > 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     func insertProduct(ean: String, inList list: Int) -> Bool {
         db.open()
         

@@ -3,7 +3,7 @@
 -- David Keller, 11.10.2014
 --
 
-PRAGMA foreign_keys=ON; -- enforce foreign keys
+PRAGMA foreign_keys=OFF; -- don't enforce foreign keys
 
 create table Category (
     categoryName TEXT PRIMARY KEY
