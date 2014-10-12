@@ -24,6 +24,8 @@
 		AAC094FB19EA50D200B15963 /* Checkbox_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC094F719EA50D200B15963 /* Checkbox_checked@3x.png */; };
 		AAC094FC19EA50D200B15963 /* Checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC094F819EA50D200B15963 /* Checkbox@2x.png */; };
 		AAC094FD19EA50D200B15963 /* Checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC094F919EA50D200B15963 /* Checkbox@3x.png */; };
+		AAC0950419EA5D5B00B15963 /* Cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC0950219EA5D5B00B15963 /* Cart@2x.png */; };
+		AAC0950519EA5D5B00B15963 /* Cart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAC0950319EA5D5B00B15963 /* Cart@3x.png */; };
 		FDDA647B1794E86C881611B6 /* libPods-ReSply.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A624E2F1A5976659D3470E /* libPods-ReSply.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		AAC094F719EA50D200B15963 /* Checkbox_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox_checked@3x.png"; sourceTree = "<group>"; };
 		AAC094F819EA50D200B15963 /* Checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@2x.png"; sourceTree = "<group>"; };
 		AAC094F919EA50D200B15963 /* Checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox@3x.png"; sourceTree = "<group>"; };
+		AAC0950219EA5D5B00B15963 /* Cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cart@2x.png"; sourceTree = "<group>"; };
+		AAC0950319EA5D5B00B15963 /* Cart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cart@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 		AA4D875119E8938D00AB2949 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAC0950219EA5D5B00B15963 /* Cart@2x.png */,
+				AAC0950319EA5D5B00B15963 /* Cart@3x.png */,
 				AAC094F619EA50D200B15963 /* Checkbox_checked@2x.png */,
 				AAC094F719EA50D200B15963 /* Checkbox_checked@3x.png */,
 				AAC094F819EA50D200B15963 /* Checkbox@2x.png */,
@@ -254,10 +260,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC094FC19EA50D200B15963 /* Checkbox@2x.png in Resources */,
+				AAC0950519EA5D5B00B15963 /* Cart@3x.png in Resources */,
 				AA4D875919E8938D00AB2949 /* Main.storyboard in Resources */,
 				AAC094FA19EA50D200B15963 /* Checkbox_checked@2x.png in Resources */,
 				AA4D875E19E8938D00AB2949 /* LaunchScreen.xib in Resources */,
 				AAC094FD19EA50D200B15963 /* Checkbox@3x.png in Resources */,
+				AAC0950419EA5D5B00B15963 /* Cart@2x.png in Resources */,
 				AA4D875B19E8938D00AB2949 /* Images.xcassets in Resources */,
 				AAC094FB19EA50D200B15963 /* Checkbox_checked@3x.png in Resources */,
 				55FA8E3919E9C62F004CBC66 /* empty.db in Resources */,

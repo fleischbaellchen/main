@@ -40,7 +40,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Shopping List" id="AZa-kV-oFY">
-                        <barButtonItem key="rightBarButtonItem" title="Go shopping" id="Rws-bT-SsR">
+                        <barButtonItem key="rightBarButtonItem" image="Cart.png" id="Rws-bT-SsR">
                             <connections>
                                 <segue destination="cnY-gg-0WQ" kind="presentation" identifier="shoppingCameraSegue" id="yFx-IM-9CY"/>
                             </connections>
@@ -126,6 +126,9 @@
             <point key="canvasLocation" x="45" y="198"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cart.png" width="22" height="22"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yFx-IM-9CY"/>
     </inferredMetricsTieBreakers>
