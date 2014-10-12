@@ -29,7 +29,7 @@
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="u47-zc-FZz">
                             <connections>
-                                <segue destination="cnY-gg-0WQ" kind="presentation" id="31c-Oi-78p"/>
+                                <segue destination="cnY-gg-0WQ" kind="presentation" identifier="scanningCameraSegue" id="31c-Oi-78p"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8XS-W0-4zv"/>
@@ -39,7 +39,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Shopping List" id="AZa-kV-oFY"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="AZa-kV-oFY">
+                        <barButtonItem key="rightBarButtonItem" title="Go shopping" id="Rws-bT-SsR">
+                            <connections>
+                                <segue destination="cnY-gg-0WQ" kind="presentation" identifier="shoppingCameraSegue" id="yFx-IM-9CY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
@@ -120,4 +126,7 @@
             <point key="canvasLocation" x="45" y="198"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yFx-IM-9CY"/>
+    </inferredMetricsTieBreakers>
 </document>
