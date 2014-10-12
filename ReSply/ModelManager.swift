@@ -16,27 +16,19 @@ class ModelManager {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentDirectory: String = paths[0] as String
         let databasePath = documentDirectory.stringByAppendingPathComponent("data.db")
-        var needsNewList = false
         
         // copy empty database if it doesn't exist
-        if (NSFileManager.defaultManager().fileExistsAtPath(databasePath)) {
+        if (!NSFileManager.defaultManager().fileExistsAtPath(databasePath)) {
             let bundleDatabasePath = NSBundle.mainBundle().pathForResource("empty", ofType: ".db")
             
             if !NSFileManager.defaultManager().copyItemAtPath(bundleDatabasePath!, toPath: databasePath, error: nil) {
                 println("Undable to copy database. Abort")
                 abort() // stop running if the database can't be copied
             }
-            
-            needsNewList = true
         }
         
         db = FMDatabase(path: databasePath)
-        
-        if needsNewList == true {
-            db.open()
-            db.executeUpdate("insert into ShoppingList values(?)", withArgumentsInArray: [listID])
-            db.close()
-        }
+    
     }
     
     func alreadyInProducts(ean: String) -> Bool {
