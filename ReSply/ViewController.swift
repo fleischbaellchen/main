@@ -128,6 +128,7 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
         }
         alertController.addAction(deleteAction)
         self.presentViewController(alertController, animated: true, completion: nil)
+        modelManager.delete(modelManager.listID)
     }
     
     override func viewDidLoad() {
@@ -233,7 +234,10 @@ class ViewController: UITableViewController, ScanViewControllerDelegate {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         var key: String = Array(categorizedProducts.keys)[indexPath.section]
         var indexSet = NSMutableIndexSet()
-        self.categorizedProducts[key]?.removeAtIndex(indexPath.row)
+        let product = self.categorizedProducts[key]?.removeAtIndex(indexPath.row)
+        if let tempProduct = product {
+            modelManager.delete(tempProduct.EAN, fromList: modelManager.listID)
+        }
         if self.categorizedProducts[key]?.count == 0 {
             self.categorizedProducts.removeValueForKey(key)
             indexSet.addIndex(indexPath.section)
