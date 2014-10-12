@@ -35,10 +35,10 @@ class Product {
             catPath.append(subJson["name"].string!)
         }
         
-        if let name = data["name"].string {
+        //if let name = data["name"].string {
             // There's a name property
-            self.name = name;
-        } else {
+        //    self.name = name;
+        //} else {
             // No name, take it from catPath
             let catPathDepth = catPath.count - 1
             if catPathDepth > 3 { // Deep catPath. Take last 2 categories
@@ -46,7 +46,7 @@ class Product {
             } else { // Shallow catpath. Take most specific
                 self.name = catPath[catPathDepth]
             }
-        }
+        //}
         
         if let cat = catPath[2] as String? {
             self.mainCategory = cat
@@ -57,8 +57,9 @@ class Product {
         println("Created product with name \(name)")
     }
     
-    func toggleTickedOff() {
-        self.tickedOff = !self.tickedOff        
+    func toggleTickedOff() -> Bool {
+        self.tickedOff = !self.tickedOff
+        return self.tickedOff
     }
     
 }
