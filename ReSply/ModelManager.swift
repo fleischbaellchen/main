@@ -159,8 +159,28 @@ class ModelManager {
             }
         }
         
-        
+        db.close()
         return products
+    }
+    
+    func delete(ean: String, fromList list: Int) -> Bool {
+        db.open()
+        
+        let result = db.executeUpdate("delete from ShoppingList where EAN=? and listId=?", withArgumentsInArray: [ean, list])
+        
+        db.close()
+        
+        return result
+    }
+    
+    func delete(list: Int) -> Bool {
+        db.open()
+        
+        let result = db.executeUpdate("delete from ShoppingList where listId=?", withArgumentsInArray: [list])
+        
+        db.close()
+        
+        return result
     }
     
     private func currentTimestamp() -> Int {
