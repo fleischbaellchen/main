@@ -68,6 +68,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOE-sH-WMQ" customClass="PreviewView" customModule="ReSply" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IwE-gE-ge5">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeI-1P-tsD">
                                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                         <items>
@@ -83,8 +87,12 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="SeI-1P-tsD" secondAttribute="bottom" id="GUh-lr-AMB"/>
+                                    <constraint firstItem="IwE-gE-ge5" firstAttribute="bottom" secondItem="SeI-1P-tsD" secondAttribute="bottom" id="IqG-49-Htn"/>
+                                    <constraint firstItem="IwE-gE-ge5" firstAttribute="trailing" secondItem="SeI-1P-tsD" secondAttribute="trailing" id="aeg-cl-jxQ"/>
                                     <constraint firstItem="SeI-1P-tsD" firstAttribute="leading" secondItem="GOE-sH-WMQ" secondAttribute="leading" id="fp3-rO-ADh"/>
+                                    <constraint firstItem="IwE-gE-ge5" firstAttribute="leading" secondItem="SeI-1P-tsD" secondAttribute="leading" id="mHS-Z0-kPk"/>
                                     <constraint firstAttribute="trailing" secondItem="SeI-1P-tsD" secondAttribute="trailing" id="mtE-CE-9TT"/>
+                                    <constraint firstItem="IwE-gE-ge5" firstAttribute="top" secondItem="GOE-sH-WMQ" secondAttribute="top" id="rfx-6o-2oX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -98,6 +106,7 @@
                     </view>
                     <connections>
                         <outlet property="previewView" destination="GOE-sH-WMQ" id="Hb0-hv-udQ"/>
+                        <outlet property="whiteScreen" destination="IwE-gE-ge5" id="umO-jA-haN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5V-q4-00f" userLabel="First Responder" sceneMemberID="firstResponder"/>
