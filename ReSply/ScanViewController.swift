@@ -29,7 +29,12 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
         
         self.whiteScreen.layer.opacity = 0.0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
+        // load video session
         self._sessionManager = SessionManager(delegate: self)
         if let sessionManager = _sessionManager {
             sessionManager.startRunning()
