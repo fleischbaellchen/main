@@ -46,7 +46,7 @@ class Product: Equatable {
             // No name, take it from catPath
             let catPathDepth = catPath.count - 1
             if catPathDepth > 3 { // Deep catPath. Take last 2 categories
-                self.name = "\(catPath[catPathDepth - 1]),  \(catPath[catPathDepth])"
+                self.name = "\(catPath[catPathDepth - 1]), \(catPath[catPathDepth])"
             } else { // Shallow catpath. Take most specific
                 self.name = catPath[catPathDepth]
             }
