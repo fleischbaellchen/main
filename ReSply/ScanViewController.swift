@@ -50,7 +50,7 @@ class ScanViewController: UIViewController, SessionManagerDelegate {
     //MARK: - SessionManagerDelegate
     func scanned(barcode: String) {
         println("scanned barcode \(barcode)")
-        // hint that leat to this solution:
+        // hint that led to this solution:
         // http://stackoverflow.com/a/12937852/286611
         dispatch_async(dispatch_get_main_queue()) {
             self.flashScreen()
