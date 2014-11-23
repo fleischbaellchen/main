@@ -1,3 +1,5 @@
+![Pitch](https://raw.githubusercontent.com/ReSply/ReSply/promo_photos/assets/Header.jpg)
+
 # ReSply
 
 To resupply your Shopping List.
